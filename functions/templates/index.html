@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% block title %}db{% endblock %}
+{% block content %}
+
+
+
+
+{{data['name']}}
+
+
+
+{% for key, value in data.items() %}
+    
+{{value}}
+
+
+{% endfor %}
+{% endblock %}
