@@ -8,13 +8,13 @@ headers = {
     "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjY5MGFhOTczLTBkZGItNDhiZC1hMDZmLTkwNTMwOTM4NzZiZSIsImlhdCI6MTcwNzE3NTY2NCwic3ViIjoiZGV2ZWxvcGVyLzc1MDJkNGRlLTI2YWEtZjhjMS0wMDRmLWVmZWJjYWFmODVlNSIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI0NS43OS4yMTguNzkiXSwidHlwZSI6ImNsaWVudCJ9XX0.HNmCO6end3HxRkhkssTqK2-ZSVXEXQhUcfEuO2vH70vAWPvokFfulZK4WdjHtNbnf72J4ZSmOZb9Av3pV62VSw",
 }
 
-db_connection = mysql.connector.connect(host="localhost", user="pamaral", passwd="@Fphm0205", database="clashroyale")
+db_connection = mysql.connector.connect(user="remote", database="clashroyale")
 cursor = db_connection.cursor()
 
 def main():
-    tags_id = verify_tags()
-    for i in range(len(tags_id)):
-        get_json(tags_id[i])
+    #tags_id = verify_tags()
+    #or i in range(len(tags_id)):
+        get_json("#9G28ULYR")
 
 def verify_tags():
     sql = "select (select group_concat(distinct tag_team) from battlelog) as tag_team, (select group_concat(distinct tag_opp) from battlelog) as tag_opp;"
