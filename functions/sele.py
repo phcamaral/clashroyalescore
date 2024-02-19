@@ -21,6 +21,10 @@ def acess_link(tag):
         tag_team = t
         op = webdriver.ChromeOptions()
         op.add_argument("headless")
+        op.add_argument('--disable-gpu')
+        op.add_argument('--no-sandbox')
+        op.add_argument('--disable-setuid-sandbox')
+        op.add_argument('--disable-dev-shm-usage')
         driver = webdriver.Chrome(options=op)
         #acessando o link da página
         link = f"https://royaleapi.com/player/{t}/battles/history?"
