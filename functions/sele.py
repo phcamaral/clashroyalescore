@@ -13,7 +13,7 @@ firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 def main():
-    tag = ["#9CPCC890", "9G28ULYR", "8LJ92G8UG"]
+    tag = ["RJ88Y8U08", "8LJ92G8UG", "9CPCC890", "9G28ULYR"]
     acess_link(tag)
 
 def acess_link(tag):
@@ -305,7 +305,6 @@ def acess_link(tag):
                     match_id = driver.find_element("xpath", f"/html/body/div[3]/div[4]/div[2]/div[6]/div[{i}]")
                     match_id = match_id.get_attribute("id")
                     
-            print(match_id[7:-2])
             driver.get(link + "before=" + match_id[7:-2] + "000&&")
 
 #def insert_sql():
