@@ -2,6 +2,8 @@ import requests
 import mysql.connector
 from mysql.connector import errorcode
 import datetime
+import schedule
+import time
 
 headers = {
     "Content-type": "application/json",
@@ -12,12 +14,13 @@ db_connection = mysql.connector.connect(user="remote", database="clashroyale", p
 cursor = db_connection.cursor()
 
 def main():
-    #tags_id = verify_tags()
-    #or i in range(len(tags_id)):
-        get_json("#9G28ULYR")
+    tags_id = verify_tags()
+    for i in range(len(tags_id)):
+        print(tags_id[i], i + 1, sep=" ")
+        get_json(tags_id[i])
 
 def verify_tags():
-    sql = "select (select group_concat(distinct tag_team) from battlelog) as tag_team, (select group_concat(distinct tag_opp) from battlelog) as tag_opp;"
+    sql = "select distinct tag_team, tag_opp from battlelog;"
     cursor.execute(sql)
                     
     tags = []
@@ -81,4 +84,8 @@ def get_json(tag):
                 db_connection.commit()
 
 
-main()
+schedule.every().second.do(main)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
